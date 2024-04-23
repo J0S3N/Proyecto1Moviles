@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">PrimerProyecto</string>
+    <string name="username">Usuario</string>
+    <string name="password">Contraseña\n</string>
+    <string name="login">Ingresar</string>
+    <string name="exit">Salir</string>
 </resources>

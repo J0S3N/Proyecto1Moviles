@@ -11,9 +11,43 @@ public class AdminHelper extends SQLiteOpenHelper {
         super(context, name, factory, version);
     }
 
-    @Override
     public void onCreate(SQLiteDatabase BaseDeDatos) {
-        BaseDeDatos.execSQL("create table articulos(codigo int primary key, descripcion text, precio real)");
+        // Crear tabla de usuarios
+        BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS users (" +
+                "user_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "username TEXT NOT NULL, " +
+                "password TEXT NOT NULL, " +
+                "role TEXT NOT NULL CHECK (role IN ('admin', 'client')));");
+
+        // Crear tabla de clientes
+        BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS clients (" +
+                "client_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "cedula TEXT NOT NULL, " +
+                "name TEXT NOT NULL, " +
+                "salary REAL NOT NULL, " +
+                "phone TEXT NOT NULL, " +
+                "birth_date TEXT NOT NULL, " +
+                "marital_status TEXT NOT NULL, " +
+                "address TEXT NOT NULL);");
+
+        // Crear tabla de préstamos
+        BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS loans (" +
+                "loan_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "client_id INTEGER NOT NULL, " +
+                "loan_type TEXT NOT NULL CHECK (loan_type IN ('hipotecario', 'educacion', 'personal', 'viajes')), " +
+                "amount REAL NOT NULL, " +
+                "period INTEGER NOT NULL, " +
+                "interest_rate REAL NOT NULL, " +
+                "monthly_payment REAL NOT NULL, " +
+                "FOREIGN KEY (client_id) REFERENCES clients (client_id));");
+
+        // Crear tabla de ahorros
+        BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS savings (" +
+                "saving_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                "client_id INTEGER NOT NULL, " +
+                "saving_type TEXT NOT NULL CHECK (saving_type IN ('navideno', 'escolar', 'marchamo', 'extraordinario')), " +
+                "monthly_contribution REAL NOT NULL, " +
+                "FOREIGN KEY (client_id) REFERENCES clients (client_id));");
     }
 
     @Override
