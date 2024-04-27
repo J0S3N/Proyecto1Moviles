@@ -13,13 +13,53 @@
         android:theme="@style/Theme.PrimerProyecto"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Pantalla_Inicio"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".administrativa.Agregar_Cliente"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".administrativa.Agregar_Prestamo"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".administrativa.Principal"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".cliente.Calcular_Cuota"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".cliente.Gestionar_Ahorro"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".cliente.Principal"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".cliente.Ver_Informacion_Personal"
+            android:exported="true">
+
+        </activity>
+        <activity
+            android:name=".cliente.Ver_Prestamo"
+            android:exported="true">
+
         </activity>
     </application>
 

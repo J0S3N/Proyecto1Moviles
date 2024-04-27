@@ -28,7 +28,9 @@ public class AdminHelper extends SQLiteOpenHelper {
                 "phone TEXT NOT NULL, " +
                 "birth_date TEXT NOT NULL, " +
                 "marital_status TEXT NOT NULL, " +
-                "address TEXT NOT NULL);");
+                "address TEXT NOT NULL, " +
+                "user_id INTEGER, " +
+                "FOREIGN KEY(user_id) REFERENCES users(user_id));");
 
         // Crear tabla de préstamos
         BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS loans (" +
@@ -48,6 +50,9 @@ public class AdminHelper extends SQLiteOpenHelper {
                 "saving_type TEXT NOT NULL CHECK (saving_type IN ('navideno', 'escolar', 'marchamo', 'extraordinario')), " +
                 "monthly_contribution REAL NOT NULL, " +
                 "FOREIGN KEY (client_id) REFERENCES clients (client_id));");
+
+        // Añadir admin
+        BaseDeDatos.execSQL("INSERT INTO users (username, password, role) VALUES ('admin', 'abcd1234', 'admin');");
     }
 
     @Override

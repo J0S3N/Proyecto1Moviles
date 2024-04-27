@@ -4,4 +4,21 @@
     <string name="password">Contraseña\n</string>
     <string name="login">Ingresar</string>
     <string name="exit">Salir</string>
+    <string name="welcome_message">Bienvenido, %1$s</string>
+    <string name="add_client">Agregar un cliente nuevo</string>
+    <string name="assign_loan">Asignar un Préstamo</string>
+    <string name="close_session">Cerrar sesión</string>
+    <string name="marital_status_prompt">Elige un estado civil</string>
+    <string-array name="marital_status_array">
+        <item>Soltero/a</item>
+        <item>Casado/a</item>
+        <item>Divorciado/a</item>
+        <item>Viudo/a</item>
+    </string-array>
+    <string name="salary_hint">Ingresa el salario</string>
+    <string name="phone_hint">Ingresa el teléfono</string>
+    <string name="birth_date_hint">Ingresa la fecha de nacimiento</string>
+    <string name="address_hint">Ingresa la dirección</string>
+    <string name="name_hint">Ingresa el nombre</string>
+
 </resources>
