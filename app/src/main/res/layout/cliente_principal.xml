@@ -4,9 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".cliente.Principal">
 
     <Button
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorBotones"
         android:id="@+id/verPrestamosButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,6 +22,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorBotones"
         android:id="@+id/gestionarAhorrosButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +36,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorBotones"
         android:id="@+id/calcularCuotaButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -43,6 +50,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorBotones"
         android:id="@+id/informacionPersonalButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -55,6 +64,8 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:backgroundTint="@color/colorBotones"
         android:id="@+id/cerrarSesionButton"
         android:layout_width="192dp"
         android:layout_height="43dp"
