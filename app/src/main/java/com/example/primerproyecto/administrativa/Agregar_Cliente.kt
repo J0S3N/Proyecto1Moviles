@@ -49,12 +49,33 @@ class Agregar_Cliente : AppCompatActivity()  {
             val id = idEditText.text.toString()
             val name = nameEditText.text.toString()
             val address = addressEditText.text.toString()
-            val maritalStatus = maritalStatusSpinner.getSelectedItem().toString()
-            val salary = parseInt(salaryEditText.text.toString())
-            val phone = parseInt(phoneEditText.text.toString())
+            val maritalStatus = maritalStatusSpinner.selectedItem.toString()
+            val salaryText = salaryEditText.text.toString()
+            val phoneText = phoneEditText.text.toString()
             val birthDate = birthDateEditText.text.toString()
 
-            saveClientInfo(username, password, id, name, address, maritalStatus, salary, phone, birthDate)
+            if (username.isNotEmpty() && password.isNotEmpty() && id.isNotEmpty() &&
+                name.isNotEmpty() && address.isNotEmpty() && maritalStatus.isNotEmpty() &&
+                salaryText.isNotEmpty() && phoneText.isNotEmpty() && birthDate.isNotEmpty()
+            ) {
+                // Convertir texto a números si es necesario
+                val salary = parseInt(salaryText)
+                val phone = parseInt(phoneText)
+                saveClientInfo(
+                    username,
+                    password,
+                    id,
+                    name,
+                    address,
+                    maritalStatus,
+                    salary,
+                    phone,
+                    birthDate
+                )
+            } else {
+                Toast.makeText(this, "Por favor, complete todos los campos", Toast.LENGTH_SHORT)
+                    .show()
+            }
         }
     }
 
