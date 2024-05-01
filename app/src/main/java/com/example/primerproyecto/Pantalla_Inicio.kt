@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class Pantalla_Inicio : AppCompatActivity() {
@@ -28,32 +29,35 @@ class Pantalla_Inicio : AppCompatActivity() {
             finish()
         }
     }
+    private fun mostrarToast(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+    }
 
     private fun consultar(username: String, password: String) {
         val admin = AdminHelper(this, "administracion", null, 1)
         val baseDatos = admin.writableDatabase
 
         val cursor = baseDatos.query(
-            "users", // Nombre de la tabla
-            arrayOf("user_id", "username", "role"), // Columnas a retornar
-            "username = ? AND password = ?", // Criterios de selección
-            arrayOf(username, password), // Valores para los criterios de selección
-            null, // Group by
-            null, // Having
-            null  // Order by
+            "users",
+            arrayOf("user_id", "username", "role"),
+            "username = ? AND password = ?",
+            arrayOf(username, password),
+            null,
+            null,
+            null
         )
 
         if (cursor.moveToFirst()) {
             val userId = cursor.getInt(cursor.getColumnIndexOrThrow("user_id"))
             val role = cursor.getString(cursor.getColumnIndexOrThrow("role"))
 
-            // Navegar a la pantalla principal correspondiente basada en el rol del usuario
             if (role == "admin") {
                 abrirPaginaPrincipalAdmin(userId)
             } else if (role == "client") {
                 abrirPaginaPrincipalCliente(userId)
             }
         } else {
+            mostrarToast("Credenciales incorrectas")
             // Mostrar mensaje de error: usuario no encontrado o credenciales incorrectas
         }
         cursor.close()

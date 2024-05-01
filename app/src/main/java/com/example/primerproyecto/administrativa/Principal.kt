@@ -13,10 +13,10 @@ class Principal : AppCompatActivity()  {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.administrativa_principal)
 
-        // Obtener el nombre de usuario del Intent
+
         val username = intent.getStringExtra("USERNAME") ?: "Usuario"
 
-        // Configurar el mensaje de bienvenida
+
         val welcomeTextView: TextView = findViewById(R.id.welcomeTextView)
         welcomeTextView.text = getString(R.string.welcome_message, username)
 
