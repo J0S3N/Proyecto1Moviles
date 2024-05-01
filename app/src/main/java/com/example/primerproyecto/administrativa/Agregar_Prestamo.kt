@@ -1,6 +1,7 @@
 package com.example.primerproyecto.administrativa
 
 import android.annotation.SuppressLint
+import android.content.ContentValues
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -60,6 +61,8 @@ class Agregar_Prestamo : AppCompatActivity()  {
         val interestRate = interestRates[loanType] ?: 0.0
         val monthlyPayment = calculateMonthlyPayment(maxLoanAmount, interestRate, loanPeriod)
 
+        saveLoan(clientInfo.clientId, maxLoanAmount, loanType, loanPeriod, interestRate)
+
         monthlyPaymentTextView.text = getString(R.string.monthly_payment, monthlyPayment)
     }
 
@@ -70,7 +73,7 @@ class Agregar_Prestamo : AppCompatActivity()  {
 
         val cursor = database.query(
             "clients", // Nombre de la tabla
-            arrayOf("salary"), // Columna que quieres retornar
+            arrayOf("client_id", "salary"), // Columnas que quieres retornar
             "cedula = ?", // Criterios de selección
             arrayOf(id), // Valores para los criterios de selección
             null, // Group by
@@ -79,8 +82,9 @@ class Agregar_Prestamo : AppCompatActivity()  {
         )
 
         if (cursor.moveToFirst()) {
+            val clientId = cursor.getInt(cursor.getColumnIndexOrThrow("client_id"))
             val salary = cursor.getDouble(cursor.getColumnIndexOrThrow("salary"))
-            clientInfo = ClientInfo(salary = salary)
+            clientInfo = ClientInfo(clientId = clientId, salary = salary)
         }
         cursor.close()
         return clientInfo
@@ -94,6 +98,27 @@ class Agregar_Prestamo : AppCompatActivity()  {
             amount / discountFactor
         } else {
             amount / numberOfPayments
+        }
+    }
+
+    private fun saveLoan(clientId: Int, loanAmount: Double, loanType: String, loanPeriod: Int, interestRate: Double) {
+        val admin = AdminHelper(this, "administracion", null, 1)
+        val database = admin.writableDatabase
+
+        val values = ContentValues().apply {
+            put("client_id", clientId)
+            put("amount", loanAmount)
+            put("loan_type", loanType)
+            put("period", loanPeriod)
+            put("interest_rate", interestRate)
+            // Añade aquí cualquier otro detalle que necesites guardar
+        }
+
+        val newRowId = database.insert("loans", null, values)
+        if (newRowId == -1L) {
+            // Manejar el caso de error al insertar
+        } else {
+            // El préstamo se guardó correctamente
         }
     }
 }

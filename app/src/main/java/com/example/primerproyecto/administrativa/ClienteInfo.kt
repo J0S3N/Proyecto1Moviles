@@ -1,3 +1,5 @@
 package com.example.primerproyecto.administrativa
-
-data class ClientInfo(val salary: Double)
+data class ClientInfo(
+    val clientId: Int,
+    val salary: Double
+)
