@@ -26,20 +26,23 @@ class Principal : AppCompatActivity()  {
         val closeButton: Button = findViewById(R.id.closeButton)
 
         addButton.setOnClickListener {
-            abrirPaginaPrincipalAdmin()
+            abrirPaginaAgregarCliente()
         }
 
         assignButton.setOnClickListener {
-            // Código para asignar un préstamo a un cliente ya existente
+            abrirPaginaAgregarPrestamo()
         }
 
         closeButton.setOnClickListener {
-            // Código para cerrar la sesión
             finish()
         }
     }
 
-    private fun abrirPaginaPrincipalAdmin() {
+    private fun abrirPaginaAgregarPrestamo() {
+        TODO("Not yet implemented")
+    }
+
+    private fun abrirPaginaAgregarCliente() {
         val intent = Intent(this, Agregar_Cliente::class.java)
         startActivity(intent)
 

@@ -21,5 +21,6 @@
     <string name="address_hint">Ingresa la dirección</string>
     <string name="name_hint">Ingresa el nombre</string>
     <string name="id_hint">Ingresa la cédula</string>
+    <string name="monthly_payment">Pago Mensual\n</string>
 
 </resources>

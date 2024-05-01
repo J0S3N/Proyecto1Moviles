@@ -6,6 +6,7 @@ import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.primerproyecto.AdminHelper
 import com.example.primerproyecto.R
@@ -94,14 +95,12 @@ class Agregar_Cliente : AppCompatActivity()  {
             val clientId = baseDatos.insert("clients", null, clientValues)
 
             if (clientId > 0) {
-                // Informar al usuario que el cliente se ha guardado correctamente
+                Toast.makeText(this, "El cliente se ha guardado correctamente", Toast.LENGTH_SHORT).show()
             } else {
-                // Informar al usuario que hubo un error al guardar la información del cliente
+                Toast.makeText(this, "Error al guardar la información del cliente", Toast.LENGTH_LONG).show()
             }
         } else {
-            // Informar al usuario que hubo un error al guardar el usuario
+            Toast.makeText(this, "Error al guardar la información del cliente", Toast.LENGTH_LONG).show()
         }
-
     }
-
 }

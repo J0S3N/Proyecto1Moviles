@@ -29,7 +29,6 @@
         <activity
             android:name=".administrativa.Agregar_Prestamo"
             android:exported="true">
-
         </activity>
         <activity
             android:name=".administrativa.Principal"
