@@ -42,7 +42,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         maritalStatusSpinner.adapter = adapter
 
-        val userId = intent.getStringExtra("USER_ID")
+        val userId = intent.getIntExtra("USER_ID", 1)
         userId?.let {
             loadClientInformation(it)
         }
@@ -52,14 +52,14 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         }
     }
 
-    private fun loadClientInformation(userId: String) {
+    private fun loadClientInformation(userId: Int) {
         val admin = AdminHelper(this, "administracion", null, 1)
         val database = admin.readableDatabase
         val cursor = database.query(
             "clients", // Nombre de la tabla
             arrayOf("name", "phone", "birth_date", "marital_status", "address"),
             "user_id = ?",
-            arrayOf(userId),
+            arrayOf(userId.toString()),
             null,
             null,
             null
@@ -81,7 +81,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         cursor.close()
     }
 
-    private fun saveClientInformation(userId: String?) {
+    private fun saveClientInformation(userId: Int?) {
         userId?.let {
             val admin = AdminHelper(this, "administracion", null, 1)
             val database = admin.writableDatabase
@@ -97,7 +97,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
                 "clients",
                 values,
                 "user_id = ?",
-                arrayOf(userId)
+                arrayOf(userId.toString())
             )
 
             if (numberOfRowsUpdated > 0) {
