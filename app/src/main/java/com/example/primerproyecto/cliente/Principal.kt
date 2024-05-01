@@ -29,7 +29,7 @@ class Principal : AppCompatActivity() {
         }
 
         calcularCuotaButton.setOnClickListener {
-            // Código para calcular la cuota
+            abrirCalcularCuota()
         }
 
         informacionPersonalButton.setOnClickListener {
@@ -39,6 +39,11 @@ class Principal : AppCompatActivity() {
         cerrarSesionButton.setOnClickListener {
             finish()
         }
+    }
+
+    private fun abrirCalcularCuota() {
+        val intent = Intent(this, Calcular_Cuota::class.java)
+        startActivity(intent)
     }
 
     private fun abrirPaginaVerPrestamos(username: String) {

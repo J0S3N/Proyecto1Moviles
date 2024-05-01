@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".cliente.Ver_Prestamo">
 
-
     <ListView
         android:id="@+id/loansListView"
         android:layout_width="match_parent"
