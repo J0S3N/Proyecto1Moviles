@@ -38,12 +38,11 @@ class Agregar_Prestamo : AppCompatActivity()  {
     }
 
     private fun setupSpinners() {
-        // Configurar el spinner de tipo de préstamo
+
         val loanTypes = arrayOf("Hipotecario", "Educación", "Personal", "Viajes")
         val loanTypeAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, loanTypes)
         loanTypeSpinner.adapter = loanTypeAdapter
 
-        // Configurar el spinner de período del préstamo
         val loanPeriods = arrayOf("3 años", "5 años", "10 años")
         val loanPeriodAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, loanPeriods)
         loanPeriodSpinner.adapter = loanPeriodAdapter
@@ -78,13 +77,13 @@ class Agregar_Prestamo : AppCompatActivity()  {
         var clientInfo: ClientInfo? = null
 
         val cursor = database.query(
-            "clients", // Nombre de la tabla
-            arrayOf("client_id", "salary"), // Columnas que quieres retornar
-            "cedula = ?", // Criterios de selección
-            arrayOf(id), // Valores para los criterios de selección
-            null, // Group by
-            null, // Having
-            null  // Order by
+            "clients",
+            arrayOf("client_id", "salary"),
+            "cedula = ?",
+            arrayOf(id),
+            null,
+            null,
+            null
         )
 
         if (cursor.moveToFirst()) {
@@ -117,14 +116,14 @@ class Agregar_Prestamo : AppCompatActivity()  {
             put("loan_type", loanType)
             put("period", loanPeriod)
             put("interest_rate", interestRate)
-            // Añade aquí cualquier otro detalle que necesites guardar
+
         }
 
         val newRowId = database.insert("loans", null, values)
         if (newRowId == -1L) {
-            // Manejar el caso de error al insertar
+            //***Manejar el caso de error al insertar
         } else {
-            // El préstamo se guardó correctamente
+            // *****El préstamo se guardó correctamente
         }
     }
 }

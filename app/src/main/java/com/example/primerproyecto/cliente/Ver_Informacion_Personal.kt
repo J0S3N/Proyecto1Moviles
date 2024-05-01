@@ -42,7 +42,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         maritalStatusSpinner.adapter = adapter
 
-        val userId = intent.getIntExtra("USER_ID", 1)
+        val userId = intent.getStringExtra("USER_ID")
         userId?.let {
             loadClientInformation(it)
         }
@@ -52,17 +52,17 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         }
     }
 
-    private fun loadClientInformation(userId: Int) {
+    private fun loadClientInformation(userId: String) {
         val admin = AdminHelper(this, "administracion", null, 1)
         val database = admin.readableDatabase
         val cursor = database.query(
             "clients", // Nombre de la tabla
-            arrayOf("name", "phone", "birth_date", "marital_status", "address"), // Columnas que quieres retornar
-            "user_id = ?", // Criterios de selección
-            arrayOf(userId.toString()), // Valores para los criterios de selección
-            null, // Group by
-            null, // Having
-            null  // Order by
+            arrayOf("name", "phone", "birth_date", "marital_status", "address"),
+            "user_id = ?",
+            arrayOf(userId),
+            null,
+            null,
+            null
         )
 
         if (cursor.moveToFirst()) {
@@ -72,17 +72,16 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
             val maritalStatus = cursor.getString(cursor.getColumnIndexOrThrow("marital_status"))
             val address = cursor.getString(cursor.getColumnIndexOrThrow("address"))
 
-            // Suponiendo que tienes EditText o TextView para mostrar la información
+
             nameEditText.setText(name)
             phoneEditText.setText(phone)
             birthDateEditText.setText(birthDate)
-            // Aquí deberías seleccionar el valor correcto en el Spinner para el estado civil
             addressEditText.setText(address)
         }
         cursor.close()
     }
 
-    private fun saveClientInformation(userId: Int?) {
+    private fun saveClientInformation(userId: String?) {
         userId?.let {
             val admin = AdminHelper(this, "administracion", null, 1)
             val database = admin.writableDatabase
@@ -95,16 +94,16 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
             }
 
             val numberOfRowsUpdated = database.update(
-                "clients", // Nombre de la tabla
-                values, // ContentValues
-                "user_id = ?", // Criterios de selección
-                arrayOf(userId.toString()) // Valores para los criterios de selección
+                "clients",
+                values,
+                "user_id = ?",
+                arrayOf(userId)
             )
 
             if (numberOfRowsUpdated > 0) {
-                // Informar al usuario que la información se actualizó correctamente
+
             } else {
-                // Informar al usuario que hubo un error al actualizar la información
+                //error al actualizar
             }
         }
     }

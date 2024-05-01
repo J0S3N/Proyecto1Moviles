@@ -58,7 +58,7 @@ class Agregar_Cliente : AppCompatActivity()  {
                 name.isNotEmpty() && address.isNotEmpty() && maritalStatus.isNotEmpty() &&
                 salaryText.isNotEmpty() && phoneText.isNotEmpty() && birthDate.isNotEmpty()
             ) {
-                // Convertir texto a números si es necesario
+
                 val salary = parseInt(salaryText)
                 val phone = parseInt(phoneText)
                 saveClientInfo(
@@ -93,16 +93,16 @@ class Agregar_Cliente : AppCompatActivity()  {
         val admin = AdminHelper(this, "administracion", null, 1)
         val baseDatos = admin.writableDatabase
 
-        // Primero, insertamos el usuario y obtenemos el user_id
+
         val userValues = ContentValues().apply {
             put("username", username)
             put("password", password)
-            put("role", "client") // Asumiendo que todos los nuevos registros son de clientes
+            put("role", "client")
         }
         val userId = baseDatos.insert("users", null, userValues)
 
         if (userId > 0) {
-            // Ahora, insertamos la información del cliente en la tabla de clientes
+
             val clientValues = ContentValues().apply {
                 put("cedula", id)
                 put("name", name)
@@ -111,7 +111,7 @@ class Agregar_Cliente : AppCompatActivity()  {
                 put("salary", salary)
                 put("phone", phone)
                 put("birth_date", birthDate)
-                put("user_id", userId) // Relacionamos el cliente con el usuario
+                put("user_id", userId)
             }
             val clientId = baseDatos.insert("clients", null, clientValues)
 

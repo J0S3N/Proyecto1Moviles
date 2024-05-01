@@ -25,7 +25,7 @@ class Principal : AppCompatActivity() {
         }
 
         gestionarAhorrosButton.setOnClickListener {
-            // Código para gestionar los ahorros
+
         }
 
         calcularCuotaButton.setOnClickListener {
