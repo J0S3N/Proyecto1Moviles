@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9CE7E2"
+    android:background="@drawable/bg"
     tools:context=".administrativa.Agregar_Prestamo">
 
     <EditText
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/idEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -20,6 +24,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/loanTypeSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -31,6 +39,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Spinner
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/loanPeriodSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,9 +51,13 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        style="@style/SpinnerItemStyle"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:background="#490ABD"
         android:id="@+id/calculateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -54,6 +70,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/monthlyPaymentTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -4,10 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#9CE7E2"
+    android:background="@drawable/bg"
     tools:context=".administrativa.Principal">
 
     <TextView
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/welcomeTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -24,6 +28,9 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:background="#490ABD"
         android:id="@+id/addButton"
         android:layout_width="330dp"
         android:layout_height="38dp"
@@ -38,6 +45,9 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:background="#490ABD"
         android:id="@+id/assignButton"
         android:layout_width="329dp"
         android:layout_height="41dp"
@@ -52,6 +62,9 @@
         app:layout_constraintVertical_bias="1.0" />
 
     <Button
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:background="#490ABD"
         android:id="@+id/closeButton"
         android:layout_width="155dp"
         android:layout_height="40dp"
