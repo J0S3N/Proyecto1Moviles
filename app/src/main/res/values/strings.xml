@@ -20,5 +20,6 @@
     <string name="birth_date_hint">Ingresa la fecha de nacimiento</string>
     <string name="address_hint">Ingresa la dirección</string>
     <string name="name_hint">Ingresa el nombre</string>
+    <string name="id_hint">Ingresa la cédula</string>
 
 </resources>

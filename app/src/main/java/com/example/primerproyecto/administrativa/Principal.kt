@@ -1,5 +1,6 @@
 package com.example.primerproyecto.administrativa
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
@@ -25,7 +26,7 @@ class Principal : AppCompatActivity()  {
         val closeButton: Button = findViewById(R.id.closeButton)
 
         addButton.setOnClickListener {
-            // Código para agregar un cliente nuevo
+            abrirPaginaPrincipalAdmin()
         }
 
         assignButton.setOnClickListener {
@@ -36,5 +37,11 @@ class Principal : AppCompatActivity()  {
             // Código para cerrar la sesión
             finish()
         }
+    }
+
+    private fun abrirPaginaPrincipalAdmin() {
+        val intent = Intent(this, Agregar_Cliente::class.java)
+        startActivity(intent)
+
     }
 }
