@@ -4,28 +4,43 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".cliente.Ver_Prestamo">
 
 
     <ListView
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/loansListView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
         android:divider="@android:color/darker_gray"
-        android:dividerHeight="0.5dp" />
+        android:dividerHeight="0.5dp"
+        tools:ignore="MissingConstraints" >
+
+        <Button
+            android:id="@+id/payButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/colorBotones"
+            android:text="Realizar Pago"
+            android:textColor="#FFFFFF"
+            tools:ignore="MissingConstraints" />
+    </ListView>
 
     <EditText
+        android:textColorHint="#FFFFFF"
+        android:textColor="#490ABD"
+        android:backgroundTint="#9CE7E2"
+        android:background="#9CE7E2"
         android:id="@+id/paymentEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Monto del Pago"
-        android:inputType="numberDecimal" />
-
-    <Button
-        android:id="@+id/payButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Realizar Pago" />
+        android:inputType="numberDecimal"
+        tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
