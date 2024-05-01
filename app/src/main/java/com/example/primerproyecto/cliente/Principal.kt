@@ -21,7 +21,7 @@ class Principal : AppCompatActivity() {
         val cerrarSesionButton: Button = findViewById(R.id.cerrarSesionButton)
 
         verPrestamosButton.setOnClickListener {
-            // Código para ver los préstamos
+            abrirPaginaVerPrestamos(username)
         }
 
         gestionarAhorrosButton.setOnClickListener {
@@ -39,6 +39,12 @@ class Principal : AppCompatActivity() {
         cerrarSesionButton.setOnClickListener {
             finish()
         }
+    }
+
+    private fun abrirPaginaVerPrestamos(username: String) {
+        val intent = Intent(this, Ver_Prestamo::class.java)
+        intent.putExtra("USER_ID", username)
+        startActivity(intent)
     }
 
     private fun abrirPaginaInformacion(username: String) {
