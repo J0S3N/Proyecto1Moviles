@@ -9,68 +9,88 @@
     tools:context=".cliente.Ver_Informacion_Personal">
 
     <EditText
-        android:textColorHint="#FFFFFF"
-        android:textColor="#490ABD"
-        android:backgroundTint="#9CE7E2"
-        android:background="#9CE7E2"
         android:id="@+id/nameEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
         android:hint="Nombre"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:textColorHint="#FFFFFF"
-        android:textColor="#490ABD"
-        android:backgroundTint="#9CE7E2"
-        android:background="#9CE7E2"
         android:id="@+id/phoneEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="144dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
         android:hint="Teléfono"
         android:inputType="phone"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:textColorHint="#FFFFFF"
-        android:textColor="#490ABD"
-        android:backgroundTint="#9CE7E2"
-        android:background="#9CE7E2"
         android:id="@+id/birthDateEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="212dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
         android:hint="Fecha de Nacimiento"
         android:inputType="date"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Spinner
-        android:textColorHint="#FFFFFF"
-        android:textColor="#490ABD"
-        android:backgroundTint="#9CE7E2"
-        android:background="#9CE7E2"
         android:id="@+id/maritalStatusSpinner"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:ignore="MissingConstraints" />
+        android:layout_marginTop="276dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
-        android:textColorHint="#FFFFFF"
-        android:textColor="#490ABD"
-        android:backgroundTint="#9CE7E2"
-        android:background="#9CE7E2"
         android:id="@+id/addressEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="344dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
         android:hint="Dirección"
-        tools:ignore="MissingConstraints" />
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <Button
-        android:textColor="#FFFFFF"
-        android:backgroundTint="@color/colorBotones"
         android:id="@+id/saveButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="188dp"
+        android:backgroundTint="@color/colorBotones"
         android:text="Guardar"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
