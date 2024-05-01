@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Pantalla_Inicio">
+    tools:context=".Pantalla_Inicio"
+    android:background="@drawable/bg">
 
     <EditText
         android:id="@+id/passwordEditText"
@@ -16,10 +17,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/usernameEditText"
         app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         app:layout_constraintVertical_bias="0.287" />
 
     <EditText
         android:id="@+id/usernameEditText"
+        android:textColor="@android:color/black"
+        android:textColorHint="@android:color/black"
         android:layout_width="224dp"
         android:layout_height="48dp"
         android:layout_marginTop="126dp"
