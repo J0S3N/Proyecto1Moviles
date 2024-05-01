@@ -15,11 +15,11 @@ import com.example.primerproyecto.R
 import kotlin.math.pow
 
 class Agregar_Prestamo : AppCompatActivity()  {
-    private lateinit var idEditText: EditText
-    private lateinit var loanTypeSpinner: Spinner
-    private lateinit var loanPeriodSpinner: Spinner
-    private lateinit var calculateButton: Button
-    private lateinit var monthlyPaymentTextView: TextView
+    lateinit var idEditText: EditText
+    lateinit var loanTypeSpinner: Spinner
+    lateinit var loanPeriodSpinner: Spinner
+    lateinit var calculateButton: Button
+    lateinit var monthlyPaymentTextView: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -97,5 +97,3 @@ class Agregar_Prestamo : AppCompatActivity()  {
         }
     }
 }
-
-data class ClientInfo(val salary: Double)

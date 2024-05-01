@@ -39,12 +39,12 @@ class Principal : AppCompatActivity()  {
     }
 
     private fun abrirPaginaAgregarPrestamo() {
-        TODO("Not yet implemented")
+        val intent = Intent(this, Agregar_Prestamo::class.java)
+        startActivity(intent)
     }
 
     private fun abrirPaginaAgregarCliente() {
         val intent = Intent(this, Agregar_Cliente::class.java)
         startActivity(intent)
-
     }
 }
