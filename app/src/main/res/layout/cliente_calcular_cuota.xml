@@ -4,36 +4,74 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg"
     tools:context=".cliente.Calcular_Cuota">
 
     <Spinner
         android:id="@+id/loanTypeSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="88dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="16dp" />
 
     <Spinner
         android:id="@+id/loanPeriodSpinner"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="152dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
     <EditText
         android:id="@+id/loanAmountEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="224dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
         android:hint="Monto del Préstamo"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal"
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="-16dp" />
 
     <Button
         android:id="@+id/calculateButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Calcular Cuota" />
+        android:backgroundTint="@color/colorBotones"
+        android:text="Calcular Cuota"
+        android:textColor="#FFFFFF"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="542dp" />
 
     <TextView
         android:id="@+id/monthlyPaymentTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="316dp"
+        android:background="#9CE7E2"
+        android:backgroundTint="#9CE7E2"
+        android:text="Cuota Mensual: "
+        android:textColor="#490ABD"
+        android:textColorHint="#FFFFFF"
         android:textSize="18sp"
-        android:text="Cuota Mensual: " />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

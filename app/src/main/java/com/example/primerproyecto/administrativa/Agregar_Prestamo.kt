@@ -10,6 +10,7 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Spinner
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.primerproyecto.AdminHelper
 import com.example.primerproyecto.R
@@ -53,17 +54,22 @@ class Agregar_Prestamo : AppCompatActivity()  {
         val id = idEditText.text.toString()
         val loanType = loanTypeSpinner.selectedItem.toString()
         val loanPeriod = loanPeriodSpinner.selectedItem.toString().filter { it.isDigit() }.toInt()
-        val interestRates = mapOf("Hipotecario" to 7.5, "Educación" to 8.0, "Personal" to 10.0, "Viajes" to 12.0)
+        val interestRates =
+            mapOf("Hipotecario" to 7.5, "Educación" to 8.0, "Personal" to 10.0, "Viajes" to 12.0)
 
-        // Obtener la información del cliente basado en la cédula
         val clientInfo = getClientInfo(id)
-        val maxLoanAmount = clientInfo!!.salary * 0.45
-        val interestRate = interestRates[loanType] ?: 0.0
-        val monthlyPayment = calculateMonthlyPayment(maxLoanAmount, interestRate, loanPeriod)
 
-        saveLoan(clientInfo.clientId, maxLoanAmount, loanType, loanPeriod, interestRate)
+        if (clientInfo != null) {
+            val maxLoanAmount = clientInfo.salary * 0.45
+            val interestRate = interestRates[loanType] ?: 0.0
+            val monthlyPayment = calculateMonthlyPayment(maxLoanAmount, interestRate, loanPeriod)
 
-        monthlyPaymentTextView.text = getString(R.string.monthly_payment, monthlyPayment)
+            saveLoan(clientInfo.clientId, maxLoanAmount, loanType, loanPeriod, interestRate)
+
+            monthlyPaymentTextView.text = getString(R.string.monthly_payment, monthlyPayment)
+        } else {
+            Toast.makeText(this, "El ID no existe", Toast.LENGTH_SHORT).show()
+        }
     }
 
     private fun getClientInfo(id: String): ClientInfo? {
