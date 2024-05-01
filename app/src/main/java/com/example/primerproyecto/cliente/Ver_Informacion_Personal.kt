@@ -57,12 +57,12 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         val database = admin.readableDatabase
         val cursor = database.query(
             "clients", // Nombre de la tabla
-            arrayOf("name", "phone", "birth_date", "marital_status", "address"), // Columnas que quieres retornar
-            "user_id = ?", // Criterios de selección
-            arrayOf(userId), // Valores para los criterios de selección
-            null, // Group by
-            null, // Having
-            null  // Order by
+            arrayOf("name", "phone", "birth_date", "marital_status", "address"),
+            "user_id = ?",
+            arrayOf(userId),
+            null,
+            null,
+            null
         )
 
         if (cursor.moveToFirst()) {
@@ -72,11 +72,10 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
             val maritalStatus = cursor.getString(cursor.getColumnIndexOrThrow("marital_status"))
             val address = cursor.getString(cursor.getColumnIndexOrThrow("address"))
 
-            // Suponiendo que tienes EditText o TextView para mostrar la información
+
             nameEditText.setText(name)
             phoneEditText.setText(phone)
             birthDateEditText.setText(birthDate)
-            // Aquí deberías seleccionar el valor correcto en el Spinner para el estado civil
             addressEditText.setText(address)
         }
         cursor.close()
@@ -95,16 +94,16 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
             }
 
             val numberOfRowsUpdated = database.update(
-                "clients", // Nombre de la tabla
-                values, // ContentValues
-                "user_id = ?", // Criterios de selección
-                arrayOf(userId) // Valores para los criterios de selección
+                "clients",
+                values,
+                "user_id = ?",
+                arrayOf(userId)
             )
 
             if (numberOfRowsUpdated > 0) {
-                // Informar al usuario que la información se actualizó correctamente
+
             } else {
-                // Informar al usuario que hubo un error al actualizar la información
+                //error al actualizar
             }
         }
     }

@@ -12,14 +12,14 @@ public class AdminHelper extends SQLiteOpenHelper {
     }
 
     public void onCreate(SQLiteDatabase BaseDeDatos) {
-        // Crear tabla de usuarios
+
         BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS users (" +
                 "user_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "username TEXT NOT NULL, " +
                 "password TEXT NOT NULL, " +
                 "role TEXT NOT NULL CHECK (role IN ('admin', 'client')));");
 
-        // Crear tabla de clientes
+
         BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS clients (" +
                 "client_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "cedula TEXT NOT NULL, " +
@@ -32,7 +32,7 @@ public class AdminHelper extends SQLiteOpenHelper {
                 "user_id INTEGER, " +
                 "FOREIGN KEY(user_id) REFERENCES users(user_id));");
 
-        // Crear tabla de préstamos
+
         BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS loans (" +
                 "loan_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "client_id INTEGER NOT NULL, " +
@@ -43,7 +43,6 @@ public class AdminHelper extends SQLiteOpenHelper {
                 "monthly_payment REAL NOT NULL, " +
                 "FOREIGN KEY (client_id) REFERENCES clients (client_id));");
 
-        // Crear tabla de ahorros
         BaseDeDatos.execSQL("CREATE TABLE IF NOT EXISTS savings (" +
                 "saving_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "client_id INTEGER NOT NULL, " +
@@ -51,7 +50,7 @@ public class AdminHelper extends SQLiteOpenHelper {
                 "monthly_contribution REAL NOT NULL, " +
                 "FOREIGN KEY (client_id) REFERENCES clients (client_id));");
 
-        // Añadir admin
+
         BaseDeDatos.execSQL("INSERT INTO users (username, password, role) VALUES ('admin', 'abcd1234', 'admin');");
     }
 

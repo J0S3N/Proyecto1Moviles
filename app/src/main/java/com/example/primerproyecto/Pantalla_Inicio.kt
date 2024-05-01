@@ -25,7 +25,6 @@ class Pantalla_Inicio : AppCompatActivity() {
         }
 
         exitButton.setOnClickListener {
-            // Cerrar la aplicación
             finish()
         }
     }
@@ -58,7 +57,6 @@ class Pantalla_Inicio : AppCompatActivity() {
             }
         } else {
             mostrarToast("Credenciales incorrectas")
-            // Mostrar mensaje de error: usuario no encontrado o credenciales incorrectas
         }
         cursor.close()
     }

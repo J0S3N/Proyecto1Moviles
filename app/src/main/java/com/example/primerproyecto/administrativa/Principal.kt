@@ -20,7 +20,7 @@ class Principal : AppCompatActivity()  {
         val welcomeTextView: TextView = findViewById(R.id.welcomeTextView)
         welcomeTextView.text = getString(R.string.welcome_message, username)
 
-        // Configurar los botones
+
         val addButton: Button = findViewById(R.id.addButton)
         val assignButton: Button = findViewById(R.id.assignButton)
         val closeButton: Button = findViewById(R.id.closeButton)
