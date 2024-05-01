@@ -42,7 +42,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         maritalStatusSpinner.adapter = adapter
 
-        val userId = intent.getStringExtra("USER_ID")
+        val userId = intent.getIntExtra("USER_ID", 1)
         userId?.let {
             loadClientInformation(it)
         }
@@ -52,14 +52,14 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         }
     }
 
-    private fun loadClientInformation(userId: String) {
+    private fun loadClientInformation(userId: Int) {
         val admin = AdminHelper(this, "administracion", null, 1)
         val database = admin.readableDatabase
         val cursor = database.query(
             "clients", // Nombre de la tabla
             arrayOf("name", "phone", "birth_date", "marital_status", "address"), // Columnas que quieres retornar
             "user_id = ?", // Criterios de selección
-            arrayOf(userId), // Valores para los criterios de selección
+            arrayOf(userId.toString()), // Valores para los criterios de selección
             null, // Group by
             null, // Having
             null  // Order by
@@ -82,7 +82,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
         cursor.close()
     }
 
-    private fun saveClientInformation(userId: String?) {
+    private fun saveClientInformation(userId: Int?) {
         userId?.let {
             val admin = AdminHelper(this, "administracion", null, 1)
             val database = admin.writableDatabase
@@ -98,7 +98,7 @@ class Ver_Informacion_Personal : AppCompatActivity()  {
                 "clients", // Nombre de la tabla
                 values, // ContentValues
                 "user_id = ?", // Criterios de selección
-                arrayOf(userId) // Valores para los criterios de selección
+                arrayOf(userId.toString()) // Valores para los criterios de selección
             )
 
             if (numberOfRowsUpdated > 0) {

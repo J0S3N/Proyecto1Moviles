@@ -12,7 +12,7 @@ class Principal : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.cliente_principal)
 
-        val username = intent.getStringExtra("USERNAME") ?: "Usuario"
+        val username = intent.getIntExtra("USER_ID", 1)
 
         val verPrestamosButton: Button = findViewById(R.id.verPrestamosButton)
         val gestionarAhorrosButton: Button = findViewById(R.id.gestionarAhorrosButton)
@@ -46,13 +46,13 @@ class Principal : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun abrirPaginaVerPrestamos(username: String) {
+    private fun abrirPaginaVerPrestamos(username: Int) {
         val intent = Intent(this, Ver_Prestamo::class.java)
         intent.putExtra("USER_ID", username)
         startActivity(intent)
     }
 
-    private fun abrirPaginaInformacion(username: String) {
+    private fun abrirPaginaInformacion(username: Int) {
         val intent = Intent(this, Ver_Informacion_Personal::class.java)
         intent.putExtra("USER_ID", username)
         startActivity(intent)

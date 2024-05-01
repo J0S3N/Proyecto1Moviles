@@ -13,7 +13,7 @@ class Ver_Prestamo : AppCompatActivity() {
     private lateinit var loansListView: ListView
     private lateinit var paymentEditText: EditText
     private lateinit var payButton: Button
-    val userId = intent.getStringExtra("USER_ID")
+    val userId = intent.getIntExtra("USER_ID", 1)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
