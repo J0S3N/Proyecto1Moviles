@@ -22,4 +22,6 @@
     <string name="name_hint">Ingresa el nombre</string>
     <string name="id_hint">Ingresa la cédula</string>
     <string name="monthly_payment">Pago Mensual: %1$.2f</string>
+    <string name="monthly_payment_result">Cuota Mensual: %1$.2f</string>
+
 </resources>
